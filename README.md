@@ -1,1 +1,4 @@
-# Basic App Translations
+Basic App
+=========
+
+# Internationalization Module
