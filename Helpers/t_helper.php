@@ -10,7 +10,7 @@ if (!function_exists('t'))
 {
 	function t(string $category, string $string = '', array $params = []) : string
 	{
-		$return = TranslationModel::t($category, $string);
+		$return = TranslationModel::translate($category, $string);
 
 		if ($params)
 		{

@@ -44,7 +44,7 @@ abstract class BaseTranslationModel extends \BasicApp\Core\Model
 
 	protected $updatedField = 'translation_updated_at';
 
-	public static function t(string $category, string $string)
+	public static function translate(string $category, string $string) : string
 	{
 		$model = static::getEntity(
 			[
