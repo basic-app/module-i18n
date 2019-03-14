@@ -15,6 +15,8 @@ $this->data['actionMenu'][] = [
 	]	
 ];
 
+require __DIR__ . '/_search.php';
+
 $rows = [];
 
 foreach($elements as $model)
@@ -22,18 +24,17 @@ foreach($elements as $model)
     $rows[] = [
         'columns' => [
             ['preset' => 'id small', 'content' => $model->translation_id],
-            ['content' => $model->translation_lang],
             ['preset' => 'medium', 'content' => $model->translation_category],
             ['preset' => 'primary', 'content' => $model->translation_source],
             ['preset' => 'large', 'content' => $model->translation_value],
-            ['preset' => 'button', 'content' => PHPTheme::widget('tableButtonUpdate', [
+            ['preset' => 'button', 'content' => admin_theme_widget('tableButtonUpdate', [
                 'label' => t('admin', 'Update'),
                 'url' => classic_url('admin/translation/update', [
                     'id' => $model->getPrimaryKey(),
                     'returnUrl' => classic_uri_string()
                 ])
             ])],
-            ['preset' => 'button', 'content' => PHPTheme::widget('tableButtonDelete', [
+            ['preset' => 'button', 'content' => admin_theme_widget('tableButtonDelete', [
                 'label' => t('admin', 'Delete'),
                 'url' => classic_url('admin/translation/delete', [
                     'id' => $model->getPrimaryKey(),
@@ -44,11 +45,10 @@ foreach($elements as $model)
     ];
 }
 
-echo PHPTheme::widget('table', [
+echo admin_theme_widget('table', [
     'head' => [
         'columns' => [
             ['preset' => 'id small', 'content' => '#'],
-            ['content' => TranslationModel::fieldLabel('translation_lang')],
             ['preset' => 'medium', 'content' => TranslationModel::fieldLabel('translation_category')],
             ['content' => TranslationModel::fieldLabel('translation_source')],
             ['preset' => 'large', 'content' => TranslationModel::fieldLabel('translation_value')],

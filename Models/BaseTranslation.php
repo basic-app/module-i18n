@@ -6,7 +6,7 @@
  */
 namespace BasicApp\I18n\Models;
 
-abstract class BaseTranslationEntity extends \BasicApp\Core\Entity
+abstract class BaseTranslation extends \BasicApp\Core\Entity
 {
 
     protected $modelClass = TranslationModel::class;

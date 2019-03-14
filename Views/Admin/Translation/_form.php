@@ -1,6 +1,6 @@
 <?php
 
-echo PHPTheme::widget('form', [
+echo admin_theme_widget('form', [
     'errors' => $errors,
     'buttons' => [
         'submit' => [

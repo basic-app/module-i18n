@@ -7,6 +7,7 @@
 namespace BasicApp\I18n\Controllers\Admin;
 
 use BasicApp\I18n\Models\TranslationModel;
+use BasicApp\I18n\Models\TranslationSearchModel;
 
 abstract class BaseTranslation extends \BasicApp\Core\AdminCrudController
 {
@@ -17,6 +18,8 @@ abstract class BaseTranslation extends \BasicApp\Core\AdminCrudController
 
 	protected $returnUrl = 'admin/translation';
 
-	protected $perPage = 50;
+	protected $perPage = 25;
+
+    protected $searchModelClass = TranslationSearchModel::class;
 
 }

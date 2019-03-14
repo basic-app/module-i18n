@@ -36,7 +36,7 @@ abstract class BaseTranslationModel extends \BasicApp\Core\Model
 		'translation_updated_at' => 'Updated At'
 	];
 
-	protected $returnType = TranslationEntity::class;
+	protected $returnType = Translation::class;
 
 	protected $useTimestamps = true;
 

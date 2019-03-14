@@ -6,6 +6,6 @@
  */
 namespace BasicApp\I18n\Models;
 
-class TranslationEntity extends BaseTranslationEntity
+class TranslationSearchModel extends BaseTranslationSearchModel
 {
 }
