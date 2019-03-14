@@ -57,6 +57,7 @@ abstract class BaseTranslationSearchModel extends \BasicApp\Core\Model
             ->select('translation_category')
             ->distinct()
             ->groupBy('translation_category')
+            ->orderBy('translation_category')
             ->get()
             ->getResultArray();
 

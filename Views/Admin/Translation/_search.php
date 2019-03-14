@@ -18,7 +18,7 @@ echo admin_theme_widget('form', [
         [
             'name' => 'category',
             'type' => 'select',
-            'items' => $searchModel::categories(),
+            'items' => $searchModel::categories(['' => '...']),
             'value' => $search->category
         ]
     ],
