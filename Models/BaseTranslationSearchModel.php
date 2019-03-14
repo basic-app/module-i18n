@@ -54,7 +54,7 @@ abstract class BaseTranslationSearchModel extends \BasicApp\Core\Model
     public static function categories($return = [])
     {
         $elements = TranslationModel::factory()
-            ->select('category')
+            ->select('translation_category')
             ->distinct()
             ->groupBy('translation_category')
             ->get()
