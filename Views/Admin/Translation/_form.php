@@ -10,19 +10,19 @@ echo admin_theme_widget('form', [
     'fields' => [
         [
             'type' => 'text',
-            'label' => $model->fieldLabel('translation_category'),
+            'label' => $model->label('translation_category'),
             'name' => 'translation_category',
             'value' => $model->translation_category
         ],
         [
             'type' => 'text',
-            'label' => $model->fieldLabel('translation_source'),
+            'label' => $model->label('translation_source'),
             'name' => 'translation_source',
             'value' => $model->translation_source
         ],
         [
             'type' => 'text',
-            'label' => $model->fieldLabel('translation_value'),
+            'label' => $model->label('translation_value'),
             'name' => 'translation_value',
             'value' => $model->translation_value
         ]

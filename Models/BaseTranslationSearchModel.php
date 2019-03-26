@@ -13,10 +13,12 @@ abstract class BaseTranslationSearchModel extends \BasicApp\Core\Model
 
     protected $returnType = TranslationSearch::class;
 
-    protected static $fieldLabels = [
+    protected $labels = [
         'category' => 'Category',
         'search' => 'Search'
     ];
+
+    protected $translations = 'translations';
 
     public static function createEntity(array $params = [])
     {

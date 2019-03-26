@@ -49,9 +49,9 @@ echo admin_theme_widget('table', [
     'head' => [
         'columns' => [
             ['preset' => 'id small', 'content' => '#'],
-            ['preset' => 'medium', 'content' => TranslationModel::fieldLabel('translation_category')],
-            ['content' => TranslationModel::fieldLabel('translation_source')],
-            ['preset' => 'large', 'content' => TranslationModel::fieldLabel('translation_value')],
+            ['preset' => 'medium', 'content' => TranslationModel::label('translation_category')],
+            ['content' => TranslationModel::label('translation_source')],
+            ['preset' => 'large', 'content' => TranslationModel::label('translation_value')],
             ['options' => ['colspan' => 2]]
         ]
     ],

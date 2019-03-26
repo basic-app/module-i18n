@@ -26,7 +26,7 @@ abstract class BaseTranslationModel extends \BasicApp\Core\Model
 		'translation_value' => 'trim|max_length[255]|required'
 	];
 
-	protected static $fieldLabels = [
+	protected $labels = [
 		'translation_id' => 'ID',
 		'translation_category' => 'Category',
         'translation_lang' => 'Language',
@@ -35,6 +35,8 @@ abstract class BaseTranslationModel extends \BasicApp\Core\Model
 		'translation_created_at' => 'Created At',
 		'translation_updated_at' => 'Updated At'
 	];
+
+    protected $translations = 'translations';
 
 	protected $returnType = Translation::class;
 
