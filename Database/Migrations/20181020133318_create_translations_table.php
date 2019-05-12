@@ -6,9 +6,7 @@
  */
 namespace BasicApp\I18n\Database\Migrations;
 
-use CodeIgniter\Database\Migration;
-
-class Migration_create_translations_table extends Migration
+class Migration_create_translations_table extends \BasicApp\Core\Migration
 {
 
 	public $tableName = 'translations';
@@ -16,41 +14,19 @@ class Migration_create_translations_table extends Migration
 	public function up()
 	{
 		$this->forge->addField([
-			'translation_id' => [
-				'type' => 'INT',
-				'constraint' => 11,
-				'unsigned' => true,
-				'auto_increment' => true
-			],
-			'translation_created_at' => [
-				'type' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
-				'null' => true
-			],
-			'translation_updated_at' => [
-				'type' => 'TIMESTAMP NULL',
-				'default' => null
-			],
-            'translation_lang' => [
-                'type' => 'CHAR',
-                'constraint' => 2,
-                'null' => false
-            ],
-			'translation_category' => [
-				'type' => 'VARCHAR',
+			'translation_id' => $this->primaryColumn(),
+			'translation_created_at' => $this->createdColumn(),
+			'translation_updated_at' => $this->updatedColumn(),
+            'translation_lang' => $this->langColumn(),
+			'translation_category' => $this->stringColumn([
 				'constraint' => 127,
 				'null' => false
-			],
-			'translation_source' => [
-				'type' => 'VARCHAR',
+			]),
+			'translation_source' => $this->stringColumn([
 				'constraint' => 127,
 				'null' => false
-			],
-			'translation_value' => [
-				'type' => 'VARCHAR',
-				'constraint' => 255,
-				'null' => true,
-				'default' => null
-			],
+			]),
+			'translation_value' => $this->stringColumn()
 		]);
 
 		$this->forge->addKey('translation_id', true);
