@@ -1,13 +1,14 @@
 <?php
 
 use BasicApp\I18n\Models\TranslationModel;
+use BasicApp\Helpers\Url;
 
 require __DIR__ . '/_common.php';
 
 unset($this->data['breadcrumbs'][count($this->data['breadcrumbs']) - 1]['url']);
 
 $this->data['actionMenu'][] = [
-	'url' => classic_url('admin/translation/create', ['returnUrl' => classic_uri_string()]), 
+	'url' => Url::returnUrl('admin/translation/create'), 
 	'label' => t('admin.menu', 'Add Translation'), 
 	'icon' => 'fa fa-plus',
 	'linkOptions' => [
@@ -29,16 +30,14 @@ foreach($elements as $model)
             ['preset' => 'large', 'content' => $model->translation_value],
             ['preset' => 'button', 'content' => admin_theme_widget('tableButtonUpdate', [
                 'label' => t('admin', 'Update'),
-                'url' => classic_url('admin/translation/update', [
-                    'id' => $model->getPrimaryKey(),
-                    'returnUrl' => classic_uri_string()
+                'url' => Url::returnUrl('admin/translation/update', [
+                    'id' => $model->getPrimaryKey()
                 ])
             ])],
             ['preset' => 'button', 'content' => admin_theme_widget('tableButtonDelete', [
                 'label' => t('admin', 'Delete'),
-                'url' => classic_url('admin/translation/delete', [
-                    'id' => $model->getPrimaryKey(),
-                    'returnUrl' => classic_uri_string()
+                'url' => Url::returnUrl('admin/translation/delete', [
+                    'id' => $model->getPrimaryKey()
                 ])
             ])]
         ]

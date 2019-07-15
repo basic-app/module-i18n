@@ -9,7 +9,7 @@ namespace BasicApp\I18n\Controllers\Admin;
 use BasicApp\I18n\Models\TranslationModel;
 use BasicApp\I18n\Models\TranslationSearchModel;
 
-abstract class BaseTranslation extends \BasicApp\Core\AdminCrudController
+abstract class BaseTranslation extends \BasicApp\Admin\AdminCrudController
 {
 
 	protected $modelClass = TranslationModel::class;
