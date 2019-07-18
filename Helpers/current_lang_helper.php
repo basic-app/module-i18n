@@ -1,8 +1,8 @@
 <?php
 /**
- * @package Basic App Internationalization
+ * @copyright Copyright (c) 2018-2019 Basic App Dev Team
+ * @link http://basic-app.com
  * @license MIT License
- * @link    http://basic-app.com
  */
 if (!function_exists('current_lang'))
 {

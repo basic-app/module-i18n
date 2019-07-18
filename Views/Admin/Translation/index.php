@@ -18,43 +18,26 @@ $this->data['actionMenu'][] = [
 
 require __DIR__ . '/_search.php';
 
-$rows = [];
+$adminTheme = service('adminTheme');
 
-foreach($elements as $model)
-{
-    $rows[] = [
-        'columns' => [
-            ['preset' => 'id small', 'content' => $model->translation_id],
-            ['preset' => 'medium', 'content' => $model->translation_category],
-            ['preset' => 'primary', 'content' => $model->translation_source],
-            ['preset' => 'large', 'content' => $model->translation_value],
-            ['preset' => 'button', 'content' => admin_theme_widget('tableButtonUpdate', [
-                'label' => t('admin', 'Update'),
-                'url' => Url::returnUrl('admin/translation/update', [
-                    'id' => $model->getPrimaryKey()
-                ])
-            ])],
-            ['preset' => 'button', 'content' => admin_theme_widget('tableButtonDelete', [
-                'label' => t('admin', 'Delete'),
-                'url' => Url::returnUrl('admin/translation/delete', [
-                    'id' => $model->getPrimaryKey()
-                ])
-            ])]
-        ]
-    ];
-}
+echo $adminTheme->table([
+    'emptyRow' => TranslationModel::createEntity(),
+    'rows' => $elements,
+    'columns' => function($model) {
 
-echo admin_theme_widget('table', [
-    'head' => [
-        'columns' => [
-            ['preset' => 'id small', 'content' => '#'],
-            ['preset' => 'medium', 'content' => TranslationModel::label('translation_category')],
-            ['content' => TranslationModel::label('translation_source')],
-            ['preset' => 'large', 'content' => TranslationModel::label('translation_value')],
-            ['options' => ['colspan' => 2]]
-        ]
-    ],
-    'rows' => $rows
+        $updateUrl = Url::returnUrl('admin/translation/update', ['id' => $model->getPrimaryKey()]);
+
+        $deleteUrl = Url::returnUrl('admin/translation/delete', ['id' => $model->getPrimaryKey()]);
+
+        return [
+            $this->createColumn(['attribute' => 'translation_id'])->displaySmall()->number(),
+            $this->createColumn(['attribute' => 'translation_category'])->displayMedium(),
+            $this->createColumn(['attribute' => 'translation_source']),
+            $this->createColumn(['attribute' => 'translation_value'])->displayExtraLarge(),
+            $this->updateButtonColumn(['url' => $updateUrl]),
+            $this->deleteButtonColumn(['url' => $deleteUrl])
+        ];
+    }
 ]);
 
 if ($pager)

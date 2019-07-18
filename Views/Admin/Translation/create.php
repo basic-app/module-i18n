@@ -2,17 +2,13 @@
 
 require __DIR__ . '/_common.php';
 
-$this->data['breadcrumbs'][] = ['label' => t('admin.menu', 'Add Translation')];
+$this->data['breadcrumbs'][] = ['label' => t('admin', 'Add')];
 
-?>
-<form method="POST" id="admin-translation-create-form">
+$this->data['enableCard'] = true;
 
-	<?php admin_theme_widget('card', [
-		'header' => $title,
-		'content' => app_view('BasicApp\I18n\Admin\Translation\_form', [
-			'model' => $model,
-			'errors' => $errors
-		])
-	]);?>
+$this->data['cardTitle'] = $this->data['title'];
 
-</form>
+echo app_view('BasicApp\I18n\Admin\Translation\_form', [
+    'model' => $model,
+    'errors' => $errors
+]);

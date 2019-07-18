@@ -1,24 +1,18 @@
 <?php
-/**
- * @package Basic App Internationalization
- * @license MIT License
- * @link    http://basic-app.com
- */
-use CodeIgniter\Events\Events;
 
-Events::on('pre_system', function()
+BasicApp\Core\CoreEvents::onPreSystem(function()
 {
 	helper(['t', 'current_lang']);
 });
 
-Events::on('admin_main_menu', function($menu)
+BasicApp\Admin\AdminEvents::onAdminMainMenu(function($menu)
 {
-	if (BasicApp\I18n\Controllers\Admin\Translation::checkAccess())
-	{
-	    $menu->items['system']['items']['translation'] = [
-	        'url' => site_url('admin/translation'),
-	        'label' => t('admin.menu', 'Translations'),
-	        'icon' => 'fa fa-book'
-	    ];
-	}
+    if (BasicApp\I18n\Controllers\Admin\Translation::checkAccess())
+    {
+        $menu->items['system']['items']['translation'] = [
+            'url' => site_url('admin/translation'),
+            'label' => t('admin.menu', 'Translations'),
+            'icon' => 'fa fa-book'
+        ];
+    }
 });

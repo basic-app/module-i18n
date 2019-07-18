@@ -1,8 +1,8 @@
 <?php
 /**
- * @package Basic App Internationalization
+ * @copyright Copyright (c) 2018-2019 Basic App Dev Team
+ * @link http://basic-app.com
  * @license MIT License
- * @link    http://basic-app.com
  */
 namespace BasicApp\I18n\Models;
 
@@ -12,19 +12,6 @@ abstract class BaseTranslationModel extends \BasicApp\Core\Model
 	protected $table = 'translations';
 
 	protected $primaryKey = 'translation_id';
-
-	protected $allowedFields = [
-		'translation_category',
-		'translation_source',
-		'translation_value',
-        'translation_lang'
-	];
-
-	protected $validationRules = [
-		'translation_category' => 'trim|max_length[255]|required',
-		'translation_source' => 'trim|max_length[255]|required',
-		'translation_value' => 'trim|max_length[255]|required'
-	];
 
 	protected $labels = [
 		'translation_id' => 'ID',
@@ -62,15 +49,5 @@ abstract class BaseTranslationModel extends \BasicApp\Core\Model
 
 		return $model->translation_value;
 	}
-
-    public function beforeSave(array $model) : array
-    {
-        if (empty($model['translation_lang']))
-        {
-            $model['translation_lang'] = current_lang();
-        }
-
-        return parent::beforeSave($model);
-    }
 
 }

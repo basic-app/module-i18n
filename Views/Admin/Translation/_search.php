@@ -1,30 +1,22 @@
 <?php
 
-echo admin_theme_widget('form', [
-    'options' => [
-        'class' => 'mb-3'
-    ],
-    //'preset' => 'filter',
-    'method' => 'GET',
-    'fields' => [
-        [
-            'name' => 'search',
-            'type' => 'text' ,
-            'options' => [
-                'placeholder' => t('admin', 'Search')
-            ],
-            'value' => $search->search
-        ],
-        [
-            'name' => 'category',
-            'type' => 'select',
-            'items' => $searchModel::categories(['' => '...']),
-            'value' => $search->category
-        ]
-    ],
-    'buttons' => [
-        'submit' => [
-            'label' => t('admin', 'Apply Filter')
-        ]
-    ]
+$adminTheme = service('adminTheme');
+
+$form = $adminTheme->createForm(['model' => $search]);
+
+echo $form->formOpen('', [
+    'class' => 'mb-3',
+    'method' => 'GET'
 ]);
+
+echo $form->input('search');
+
+echo $form->dropdown('category', $searchModel::categories(['' => '...']));
+
+echo $form->renderErrors();
+
+$label = t('admin', 'Apply Filter');
+
+echo $form->submit($label);
+
+echo $form->formClose();

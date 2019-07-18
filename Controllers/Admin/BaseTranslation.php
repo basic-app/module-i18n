@@ -1,12 +1,12 @@
 <?php
 /**
- * @package Basic App Internationalization
+ * @copyright Copyright (c) 2018-2019 Basic App Dev Team
+ * @link http://basic-app.com
  * @license MIT License
- * @link    http://basic-app.com
  */
 namespace BasicApp\I18n\Controllers\Admin;
 
-use BasicApp\I18n\Models\TranslationModel;
+use BasicApp\I18n\Models\Admin\TranslationModel;
 use BasicApp\I18n\Models\TranslationSearchModel;
 
 abstract class BaseTranslation extends \BasicApp\Admin\AdminCrudController
