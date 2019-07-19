@@ -14,18 +14,12 @@ class Migration_create_translations_table extends \BasicApp\Core\Migration
 	public function up()
 	{
 		$this->forge->addField([
-			'translation_id' => $this->primaryColumn(),
+			'translation_id' => $this->primaryKeyColumn(),
 			'translation_created_at' => $this->createdColumn(),
 			'translation_updated_at' => $this->updatedColumn(),
             'translation_lang' => $this->langColumn(),
-			'translation_category' => $this->stringColumn([
-				'constraint' => 127,
-				'null' => false
-			]),
-			'translation_source' => $this->stringColumn([
-				'constraint' => 127,
-				'null' => false
-			]),
+			'translation_category' => $this->stringColumn(['constraint' => 127, 'null' => false]),
+			'translation_source' => $this->stringColumn(['constraint' => 127, 'null' => false]),
 			'translation_value' => $this->stringColumn()
 		]);
 
