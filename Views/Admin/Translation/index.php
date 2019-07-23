@@ -21,21 +21,17 @@ require __DIR__ . '/_search.php';
 $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
-    'emptyRow' => TranslationModel::createEntity(),
+    'defaultRow' => TranslationModel::createEntity(),
     'rows' => $elements,
     'columns' => function($model) {
-
-        $updateUrl = Url::returnUrl('admin/translation/update', ['id' => $model->getPrimaryKey()]);
-
-        $deleteUrl = Url::returnUrl('admin/translation/delete', ['id' => $model->getPrimaryKey()]);
 
         return [
             $this->createColumn(['attribute' => 'translation_id'])->displaySmall()->number(),
             $this->createColumn(['attribute' => 'translation_category'])->displayMedium(),
             $this->createColumn(['attribute' => 'translation_source']),
             $this->createColumn(['attribute' => 'translation_value'])->displayExtraLarge(),
-            $this->updateButtonColumn(['url' => $updateUrl]),
-            $this->deleteButtonColumn(['url' => $deleteUrl])
+            $this->createUpdateLinkColumn(['action' => 'admin/translation/update']),
+            $this->createDeleteLinkColumn(['action' => 'admin/translation/delete'])
         ];
     }
 ]);
