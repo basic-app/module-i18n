@@ -11,10 +11,4 @@ abstract class BaseTranslationSearch extends \BasicApp\Core\Entity
 
     protected $modelClass = TranslationSearchModel::class;
 
-    public $category;
-
-    public $search;
-
-    public $lang;
-
 }
