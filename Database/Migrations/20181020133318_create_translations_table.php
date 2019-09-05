@@ -29,12 +29,12 @@ class Migration_create_translations_table extends \BasicApp\Core\Migration
 
 		$this->forge->addUniqueKey(['translation_category', 'translation_source', 'translation_lang']);
 
-		$this->forge->createTable($this->tableName, false, ['ENGINE' => 'InnoDB']);
+		$this->createTable($this->tableName);
 	}
 
 	public function down()
 	{
-		$this->forge->dropTable($this->tableName, false);
+		$this->dropTable($this->tableName);
 	}
 
 }
