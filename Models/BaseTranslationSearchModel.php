@@ -14,7 +14,7 @@ abstract class BaseTranslationSearchModel extends \BasicApp\Core\Model
     protected $returnType = TranslationSearch::class;
 
     protected $labels = [
-        'category' => 'Category'
+        'category' => 'Category',
         'search' => 'Search'
     ];
 
