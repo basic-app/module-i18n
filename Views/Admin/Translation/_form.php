@@ -4,22 +4,26 @@ use BasicApp\Helpers\Url;
 
 $adminTheme = service('adminTheme');
 
-$form = $adminTheme->createForm(['model' => $model, 'errors' => $errors]);
+$form = $adminTheme->createForm($model, $errors);
 
 $url = Url::currentUrl();
 
-echo $form->formOpen($url);
+echo $form->open($url);
 
-echo $form->input('translation_category');
+echo $form->inputGroup($data, 'translation_category');
 
-echo $form->input('translation_source');
+echo $form->inputGroup($data, 'translation_source');
 
-echo $form->input('translation_value');
+echo $form->inputGroup($data, 'translation_value');
 
 echo $form->renderErrors();
 
-$label = $model->getPrimaryKey() ? t('admin', 'Update') : t('admin', 'Create');
+echo $form->beginButtons();
 
-echo $form->submit($label);
+$label = $data->getPrimaryKey() ? t('admin', 'Update') : t('admin', 'Create');
 
-echo $form->formClose();
+echo $form->submitButton($label);
+
+echo $form->endButtons();
+
+echo $form->close();

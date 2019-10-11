@@ -2,21 +2,20 @@
 
 $adminTheme = service('adminTheme');
 
-$form = $adminTheme->createForm(['model' => $search]);
+$form = $adminTheme->createForm($searchModel);
 
-echo $form->formOpen('', [
-    'class' => 'mb-3',
-    'method' => 'GET'
-]);
+echo $form->open(null, ['class' => 'mb-3','method' => 'GET']);
 
-echo $form->input('search');
+echo $form->inputGroup($search, 'search');
 
-echo $form->dropdown('category', $searchModel::categories(['' => '...']));
+echo $form->dropdownGroup($search, 'category', $searchModel::categories(['' => '...']));
 
 echo $form->renderErrors();
 
-$label = t('admin', 'Apply Filter');
+echo $form->beginButtons();
 
-echo $form->submit($label);
+echo $form->submitButton(t('admin', 'Apply Filter'));
 
-echo $form->formClose();
+echo $form->endButtons();
+
+echo $form->close();
