@@ -21,7 +21,15 @@ require __DIR__ . '/_search.php';
 $adminTheme = service('adminTheme');
 ;
 echo $adminTheme->table([
-    'defaultRow' => TranslationModel::createEntity(),
+    
+    'header' => [
+        TranslationModel::label('translation_id'),
+        TranslationModel::label('translation_category'),
+        TranslationModel::label('translation_source'),
+        TranslationModel::label('translation_value'),
+        '',
+        ''
+    ],
     'rows' => $elements,
     'columns' => function($model) {
 
