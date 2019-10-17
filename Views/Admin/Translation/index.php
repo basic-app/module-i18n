@@ -19,10 +19,9 @@ $this->data['actionMenu'][] = [
 require __DIR__ . '/_search.php';
 
 $adminTheme = service('adminTheme');
-;
+
 echo $adminTheme->table([
-    
-    'header' => [
+    'labels' => [
         TranslationModel::label('translation_id'),
         TranslationModel::label('translation_category'),
         TranslationModel::label('translation_source'),
@@ -30,9 +29,8 @@ echo $adminTheme->table([
         '',
         ''
     ],
-    'rows' => $elements,
+    'data' => $elements,
     'columns' => function($model) {
-
         return [
             $this->createColumn(['attribute' => 'translation_id'])->displaySmall()->number(),
             $this->createColumn(['attribute' => 'translation_category'])->displayMedium(),
