@@ -33,21 +33,28 @@ abstract class BaseTranslationModel extends \BasicApp\Core\Model
 
 	protected $updatedField = 'translation_updated_at';
 
-	public static function translate(string $category, string $string) : string
-	{
-		$model = static::getEntity(
-			[
-                'translation_category' => $category, 
-                'translation_source' => $string,
-                'translation_lang' => current_lang()
-            ],
-			true,
-			[
-                'translation_value' => $string
-            ]
-    	);
+    public static function createEntity($data = [], $save = false, $protect = true, &$error = NULL)
+    {
+        $return = parent::createEntity($data, $save, $protect, $error);
 
-		return $model->translation_value;
-	}
+        if ($return)
+        {
+            $return->lang = current_lang();
+        }
+
+        return $return;
+    }
+
+    public function beforeSave(array $params) : array
+    {
+        $model = $params['data'];
+
+        if (!$model->translation_lang)
+        {
+            $model->translation_lang = current_lang();
+        }
+
+        return parent::beforeSave($params);
+    }
 
 }

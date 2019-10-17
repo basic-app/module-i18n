@@ -6,9 +6,7 @@ $adminTheme = service('adminTheme');
 
 $form = $adminTheme->createForm($model, $errors);
 
-$url = Url::currentUrl();
-
-echo $form->open($url);
+echo $form->open();
 
 echo $form->inputGroup($data, 'translation_category');
 

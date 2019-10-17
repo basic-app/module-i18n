@@ -10,7 +10,19 @@ if (!function_exists('t'))
 {
 	function t(string $category, string $string = '', array $params = []) : string
 	{
-		$return = TranslationModel::translate($category, $string);
+		$data = TranslationModel::getEntity(
+            [
+                'translation_category' => $category, 
+                'translation_source' => $string,
+                'translation_lang' => current_lang()
+            ],
+            true,
+            [
+                'translation_value' => $string
+            ]
+        );
+
+        $return = $data->translation_value;
 
 		if ($params)
 		{

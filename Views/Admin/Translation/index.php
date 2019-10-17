@@ -19,7 +19,7 @@ $this->data['actionMenu'][] = [
 require __DIR__ . '/_search.php';
 
 $adminTheme = service('adminTheme');
-
+;
 echo $adminTheme->table([
     'defaultRow' => TranslationModel::createEntity(),
     'rows' => $elements,

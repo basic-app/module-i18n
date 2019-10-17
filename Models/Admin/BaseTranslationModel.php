@@ -24,16 +24,4 @@ abstract class BaseTranslationModel extends \BasicApp\I18n\Models\TranslationMod
         'translation_value' => 'trim|max_length[255]|required'
     ];
 
-    public function beforeSave(array $params) : array
-    {
-        $model = $params['data'];
-
-        if (!$model->translation_lang)
-        {
-            $model->translation_lang = current_lang();
-        }
-
-        return parent::beforeSave($params);
-    }
-
 }

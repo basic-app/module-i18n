@@ -20,18 +20,6 @@ abstract class BaseTranslationSearchModel extends \BasicApp\Core\Model
 
     protected $translations = 'translations';
 
-    public static function createEntity($data = [], $save = false, $protect = true, &$error = NULL)
-    {
-        $return = parent::createEntity($data, $save, $protect, $error);
-
-        if ($return)
-        {
-            $return->lang = current_lang();
-        }
-
-        return $return;
-    }
-
     public static function applyToQuery($search, $query)
     {
         if ($search->lang)
