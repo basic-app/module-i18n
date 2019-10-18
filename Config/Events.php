@@ -14,14 +14,17 @@ SystemEvents::onPreSystem(function()
 	helper(['t', 'current_lang']);
 });
 
-AdminEvents::onAdminMainMenu(function($menu)
+if (class_exists(AdminEvents::class))
 {
-    if (BasicApp\I18n\Controllers\Admin\Translation::checkAccess())
+    AdminEvents::onAdminMainMenu(function($menu)
     {
-        $menu->items['system']['items']['translation'] = [
-            'url' => Url::createUrl('admin/translation'),
-            'label' => t('admin.menu', 'Translations'),
-            'icon' => 'fa fa-book'
-        ];
-    }
-});
+        if (BasicApp\I18n\Controllers\Admin\Translation::checkAccess())
+        {
+            $menu->items['system']['items']['translation'] = [
+                'url' => Url::createUrl('admin/translation'),
+                'label' => t('admin.menu', 'Translations'),
+                'icon' => 'fa fa-book'
+            ];
+        }
+    });
+}
