@@ -6,12 +6,15 @@
  */
 use BasicApp\Helpers\Url;
 
-BasicApp\Core\CoreEvents::onPreSystem(function()
+use BasicApp\Admin\AdminEvents;
+use BasicApp\System\SystemEvents;
+
+SystemEvents::onPreSystem(function()
 {
 	helper(['t', 'current_lang']);
 });
 
-CodeIgniter\Events\Events::on('admin_main_menu', function($menu)
+AdminEvents::onAdminMainMenu(function($menu)
 {
     if (BasicApp\I18n\Controllers\Admin\Translation::checkAccess())
     {

@@ -13,7 +13,7 @@ $this->data['actionMenu'][] = [
 	'icon' => 'fa fa-plus',
 	'linkOptions' => [
 		'class' => 'btn btn-success'
-	]	
+	]
 ];
 
 require __DIR__ . '/_search.php';
