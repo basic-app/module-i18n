@@ -9,7 +9,7 @@ unset($this->data['breadcrumbs'][count($this->data['breadcrumbs']) - 1]['url']);
 
 $this->data['actionMenu'][] = [
 	'url' => Url::returnUrl('admin/translation/create'), 
-	'label' => t('admin.menu', 'Add Translation'), 
+	'label' => t('admin.menu', 'Create'), 
 	'icon' => 'fa fa-plus',
 	'linkOptions' => [
 		'class' => 'btn btn-success'
