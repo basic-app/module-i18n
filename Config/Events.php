@@ -16,7 +16,7 @@ SystemEvents::onPreSystem(function()
 
 if (class_exists(AdminEvents::class))
 {
-    AdminEvents::onAdminMainMenu(function($menu)
+    AdminEvents::onMainMenu(function($menu)
     {
         if (BasicApp\I18n\Controllers\Admin\Translation::checkAccess())
         {
