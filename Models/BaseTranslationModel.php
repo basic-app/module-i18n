@@ -13,7 +13,7 @@ abstract class BaseTranslationModel extends \BasicApp\Core\Model
 
 	protected $primaryKey = 'translation_id';
 
-	protected $labels = [
+	protected $fieldLabels = [
 		'translation_id' => 'ID',
 		'translation_category' => 'Category',
         'translation_lang' => 'Language',
@@ -23,7 +23,7 @@ abstract class BaseTranslationModel extends \BasicApp\Core\Model
 		'translation_updated_at' => 'Updated At'
 	];
 
-    protected $translations = 'translations';
+    protected $langCategory = 'translations';
 
 	protected $returnType = Translation::class;
 
