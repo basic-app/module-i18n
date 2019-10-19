@@ -22,14 +22,14 @@ $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
     'labels' => [
-        TranslationModel::label('translation_id'),
-        TranslationModel::label('translation_category'),
-        TranslationModel::label('translation_source'),
-        TranslationModel::label('translation_value'),
+        TranslationModel::fieldLabel('translation_id'),
+        TranslationModel::fieldLabel('translation_category'),
+        TranslationModel::fieldLabel('translation_source'),
+        TranslationModel::fieldLabel('translation_value'),
         '',
         ''
     ],
-    'data' => $elements,
+    'elements' => $elements,
     'columns' => function($model) {
         return [
             $this->createColumn(['attribute' => 'translation_id'])->displaySmall()->number(),
