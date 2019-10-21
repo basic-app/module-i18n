@@ -34,7 +34,7 @@ echo $adminTheme->table([
         return [
             $this->createColumn(['attribute' => 'translation_id'])->displaySmall()->number(),
             $this->createColumn(['attribute' => 'translation_category'])->displayMedium(),
-            $this->createColumn(['attribute' => 'translation_source']),
+            $this->createColumn(['attribute' => 'translation_source'])->success(),
             $this->createColumn(['attribute' => 'translation_value'])->displayExtraLarge(),
             $this->createUpdateLinkColumn(['action' => 'admin/translation/update']),
             $this->createDeleteLinkColumn(['action' => 'admin/translation/delete'])
