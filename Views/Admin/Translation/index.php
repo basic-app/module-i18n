@@ -11,7 +11,7 @@ $this->data['actionMenu'][] = [
 	'url' => Url::returnUrl('admin/translation/create'), 
 	'label' => t('admin.menu', 'Create'), 
 	'icon' => 'fa fa-plus',
-	'linkOptions' => [
+	'linkAttributes' => [
 		'class' => 'btn btn-success'
 	]
 ];
