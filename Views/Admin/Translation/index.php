@@ -32,10 +32,10 @@ echo $adminTheme->table([
     'elements' => $elements,
     'columns' => function($model) {
         return [
-            $this->createColumn(['attribute' => 'translation_id'])->displaySmall()->number(),
-            $this->createColumn(['attribute' => 'translation_category'])->displayMedium(),
-            $this->createColumn(['attribute' => 'translation_source'])->success(),
-            $this->createColumn(['attribute' => 'translation_value'])->displayExtraLarge(),
+            $this->createColumn(['field' => 'translation_id'])->displaySmall()->number(),
+            $this->createColumn(['field' => 'translation_category'])->displayMedium(),
+            $this->createColumn(['field' => 'translation_source'])->success(),
+            $this->createColumn(['field' => 'translation_value'])->displayExtraLarge(),
             $this->createUpdateLinkColumn(['action' => 'admin/translation/update']),
             $this->createDeleteLinkColumn(['action' => 'admin/translation/delete'])
         ];
