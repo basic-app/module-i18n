@@ -5,7 +5,7 @@
  * @link http://basic-app.com
  */
 use BasicApp\Helpers\Url;
-
+use BasicApp\Helpers\CliHelper;
 use BasicApp\Admin\AdminEvents;
 use BasicApp\System\SystemEvents;
 
@@ -14,7 +14,7 @@ SystemEvents::onPreSystem(function()
 	helper(['t', 'current_lang']);
 });
 
-SystemEvents::onUpdate(function($event)
+SystemEvents::onSeed(function($event)
 {
     if ($event->reset)
     {
@@ -25,7 +25,7 @@ SystemEvents::onUpdate(function($event)
             throw new Exception($db->error());
         }
 
-        echo 'translation table truncated' . PHP_EOL;
+        CliHelper::message('translation table truncated');
     }
 });
 
