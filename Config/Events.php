@@ -8,7 +8,6 @@ use BasicApp\Helpers\Url;
 
 use BasicApp\Admin\AdminEvents;
 use BasicApp\System\SystemEvents;
-use CodeIgniter\CLI\CLI;
 
 SystemEvents::onPreSystem(function()
 {
