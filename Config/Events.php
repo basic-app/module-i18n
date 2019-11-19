@@ -25,7 +25,7 @@ SystemEvents::onSeed(function($event)
             throw new Exception($db->error());
         }
 
-        CliHelper::message('translation table truncated');
+        CliHelper::message('Truncated: translations');
     }
 });
 
