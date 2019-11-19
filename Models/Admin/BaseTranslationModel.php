@@ -19,9 +19,9 @@ abstract class BaseTranslationModel extends \BasicApp\I18n\Models\TranslationMod
     ];
 
     protected $validationRules = [
-        'translation_category' => 'html_tags[]|max_length[255]|required',
-        'translation_source' => 'html_tags[]|max_length[255]|required',
-        'translation_value' => 'html_tags[]|max_length[255]|required'
+        'translation_category' => 'not_special_chars|max_length[255]|required',
+        'translation_source' => 'not_special_chars|max_length[255]|required',
+        'translation_value' => 'not_special_chars|max_length[255]|required'
     ];
 
 }
