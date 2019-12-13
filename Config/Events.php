@@ -9,11 +9,6 @@ use BasicApp\Helpers\CliHelper;
 use BasicApp\Admin\AdminEvents;
 use BasicApp\System\SystemEvents;
 
-SystemEvents::onPreSystem(function()
-{
-	helper(['t', 'current_lang']);
-});
-
 SystemEvents::onSeed(function($event)
 {
     if ($event->reset)
