@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Basic App Dev Team
+ * @author Basic App Dev Team <dev@basic-app.com>
  * @license MIT
  * @link http://basic-app.com
  */
@@ -32,8 +32,7 @@ if (class_exists(AdminEvents::class))
         {
             $menu->items['system']['items']['translation'] = [
                 'url' => Url::createUrl('admin/translation'),
-                'label' => t('admin.menu', 'Translations'),
-                'icon' => 'fa fa-book'
+                'label' => t('admin.menu', 'Translations')
             ];
         }
     });

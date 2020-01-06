@@ -8,7 +8,7 @@ echo $form->open(null, ['class' => 'mb-3','method' => 'GET']);
 
 echo $form->inputGroup($search, 'search');
 
-echo $form->dropdownGroup($search, 'category', $searchModel::categories(['' => '...']));
+echo $form->dropdownGroup($search, 'category', $search->categoryList(['' => '...']));
 
 echo $form->renderErrors();
 

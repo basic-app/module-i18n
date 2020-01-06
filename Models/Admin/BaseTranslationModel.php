@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Basic App Dev Team
+ * @author Basic App Dev Team <dev@basic-app.com>
  * @license MIT
  * @link http://basic-app.com
  */
@@ -21,7 +21,7 @@ abstract class BaseTranslationModel extends \BasicApp\I18n\Models\TranslationMod
     protected $validationRules = [
         'translation_category' => 'not_special_chars|max_length[255]|required',
         'translation_source' => 'not_special_chars|max_length[255]|required',
-        'translation_value' => 'not_special_chars|max_length[255]|required'
+        'translation_value' => 'max_length[255]|required'
     ];
 
 }

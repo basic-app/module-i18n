@@ -22,10 +22,10 @@ $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
     'labels' => [
-        TranslationModel::fieldLabel('translation_id'),
-        TranslationModel::fieldLabel('translation_category'),
-        TranslationModel::fieldLabel('translation_source'),
-        TranslationModel::fieldLabel('translation_value'),
+        $model->getFieldLabel('translation_id'),
+        $model->getFieldLabel('translation_category'),
+        $model->getFieldLabel('translation_source'),
+        $model->getFieldLabel('translation_value'),
         '',
         ''
     ],
