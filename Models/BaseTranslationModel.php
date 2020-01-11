@@ -9,29 +9,29 @@ namespace BasicApp\I18n\Models;
 abstract class BaseTranslationModel extends \BasicApp\Core\Model
 {
 
-	protected $table = 'translations';
+    protected $table = 'translations';
 
-	protected $primaryKey = 'translation_id';
+    protected $primaryKey = 'translation_id';
 
-	protected $fieldLabels = [
-		'translation_id' => 'ID',
-		'translation_category' => 'Category',
+    protected $fieldLabels = [
+        'translation_id' => 'ID',
+        'translation_category' => 'Category',
         'translation_lang' => 'Language',
-		'translation_source' => 'Source',
-		'translation_value' => 'Value',
-		'translation_created_at' => 'Created At',
-		'translation_updated_at' => 'Updated At'
-	];
+        'translation_source' => 'Source',
+        'translation_value' => 'Value',
+        'translation_created_at' => 'Created At',
+        'translation_updated_at' => 'Updated At'
+    ];
 
     protected $langCategory = 'translations';
 
-	protected $returnType = Translation::class;
+    protected $returnType = Translation::class;
 
-	protected $useTimestamps = true;
+    protected $useTimestamps = true;
 
-	protected $createdField = 'translation_created_at';
+    protected $createdField = 'translation_created_at';
 
-	protected $updatedField = 'translation_updated_at';
+    protected $updatedField = 'translation_updated_at';
 
     public static function createEntity($data = [], $save = false, $protect = true, &$error = NULL)
     {

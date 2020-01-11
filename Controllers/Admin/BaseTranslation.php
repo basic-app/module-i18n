@@ -12,13 +12,13 @@ use BasicApp\I18n\Models\TranslationSearchModel;
 abstract class BaseTranslation extends \BasicApp\Admin\AdminCrudController
 {
 
-	protected $modelClass = TranslationModel::class;
+    protected $modelClass = TranslationModel::class;
 
-	protected $viewPath = 'BasicApp\I18n\Admin\Translation';
+    protected $viewPath = 'BasicApp\I18n\Admin\Translation';
 
-	protected $returnUrl = 'admin/translation';
+    protected $returnUrl = 'admin/translation';
 
-	protected $perPage = 25;
+    protected $perPage = 25;
 
     protected $searchModelClass = TranslationSearchModel::class;
 

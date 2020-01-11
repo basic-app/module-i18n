@@ -8,7 +8,7 @@ $this->data['enableCard'] = true;
 
 $this->data['cardTitle'] = $this->data['title'];
 
-echo app_view('BasicApp\I18n\Admin\Translation\_form', [
+echo app_view($viewPath . '_form', [
     'model' => $model,
     'errors' => $errors
 ]);

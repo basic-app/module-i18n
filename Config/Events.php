@@ -8,27 +8,23 @@ use BasicApp\Helpers\Url;
 use BasicApp\Helpers\CliHelper;
 use BasicApp\Admin\AdminEvents;
 use BasicApp\System\SystemEvents;
+use BasicApp\System\Events\SystemResetEvent;
+use BasicApp\I18n\Controllers\Admin\Translation as TranslationController;
+use Config\Database;
+use BasicApp\I18n\Database\Seeds\I18nResetSeeder;
 
-SystemEvents::onSeed(function($event)
+SystemEvents::onReset(function(SystemResetEvent $event)
 {
-    if ($event->reset)
-    {
-        $db = db_connect();
+    $seeder = Database::seeder();
 
-        if (!$db->simpleQuery('TRUNCATE TABLE translations'))
-        {
-            throw new Exception($db->error());
-        }
-
-        CliHelper::message('Truncated: translations');
-    }
+    $seeder->call(I18nResetSeeder::class);
 });
 
 if (class_exists(AdminEvents::class))
 {
     AdminEvents::onMainMenu(function($menu)
     {
-        if (BasicApp\I18n\Controllers\Admin\Translation::checkAccess())
+        if (TranslationController::checkAccess())
         {
             $menu->items['system']['items']['translation'] = [
                 'url' => Url::createUrl('admin/translation'),
