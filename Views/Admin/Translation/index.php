@@ -20,25 +20,28 @@ require __DIR__ . '/_search.php';
 
 $adminTheme = service('adminTheme');
 
-echo $adminTheme->table([
-    'labels' => [
-        $model->getFieldLabel('translation_id'),
-        $model->getFieldLabel('translation_category'),
-        $model->getFieldLabel('translation_source'),
+echo $adminTheme->grid([
+    'headers' => [
+        ['class' => $adminTheme::GRID_HEADER_PRIMARY_KEY, 'content' => $model->getFieldLabel('translation_id')],
+        ['class' => $adminTheme::GRID_HEADER_MEDIUM, 'content' => $model->getFieldLabel('translation_category')],
+        ['class' => $adminTheme::GRID_HEADER_LABEL, 'content' => $model->getFieldLabel('translation_source')],
         $model->getFieldLabel('translation_value'),
-        '',
-        ''
+        ['class' => $adminTheme::GRID_HEADER_BUTTON_UPDATE],
+        ['class' => $adminTheme::GRID_HEADER_BUTTON_DELETE]
     ],
-    'elements' => $elements,
-    'columns' => function($model) {
-        return [
-            $this->createColumn(['field' => 'translation_id'])->displaySmall()->number(),
-            $this->createColumn(['field' => 'translation_category'])->displayMedium(),
-            $this->createColumn(['field' => 'translation_source'])->success(),
-            $this->createColumn(['field' => 'translation_value'])->displayExtraLarge(),
-            $this->createUpdateLinkColumn(['action' => 'admin/translation/update']),
-            $this->createDeleteLinkColumn(['action' => 'admin/translation/delete'])
-        ];
+    'items' => function() use ($elements, $adminTheme) {
+        
+        foreach($elements as $data)
+        {
+            yield [
+                $data->translation_id,
+                $data->translation_category,
+                $data->translation_source,
+                $data->translation_value,
+                ['url' => Url::returnUrl('admin/translation/update', ['id' => $data->translation_id])],
+                ['url' => Url::returnUrl('admin/translation/delete', ['id' => $data->translation_id])]
+            ];
+        }
     }
 ]);
 

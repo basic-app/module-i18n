@@ -24,7 +24,7 @@ if (class_exists(AdminEvents::class))
 {
     AdminEvents::onMainMenu(function($menu)
     {
-        if (service('user')->can(TranslationController::class))
+        if (service('admin')->can(TranslationController::class))
         {
             $menu->items['system']['items']['translation'] = [
                 'url' => Url::createUrl('admin/translation'),
