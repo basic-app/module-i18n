@@ -6,7 +6,7 @@
  */
 namespace BasicApp\I18n\Database\Migrations;
 
-class Migration_create_translations_table extends \BasicApp\Core\Migration
+class Migration_create_translations_table extends \BasicApp\Migration\BaseMigration
 {
 
     public $tableName = 'translations';
