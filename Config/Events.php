@@ -12,6 +12,7 @@ use BasicApp\System\Events\SystemResetEvent;
 use BasicApp\I18n\Controllers\Admin\Translation as TranslationController;
 use Config\Database;
 use BasicApp\I18n\Database\Seeds\I18nResetSeeder;
+use BasicApp\AdminMenu\AdminMenuEvents;
 
 SystemEvents::onReset(function(SystemResetEvent $event)
 {
@@ -20,9 +21,9 @@ SystemEvents::onReset(function(SystemResetEvent $event)
     $seeder->call(I18nResetSeeder::class);
 });
 
-if (class_exists(AdminEvents::class))
+if (class_exists(AdminMenuEvents::class))
 {
-    AdminEvents::onMainMenu(function($menu)
+    AdminMenuEvents::onMainMenu(function($menu)
     {
         $menu->items['system']['items']['translation'] = [
             'url' => Url::createUrl('admin/translation'),
